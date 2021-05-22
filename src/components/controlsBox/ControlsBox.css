@@ -1,0 +1,13 @@
+.controlsBox {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  display: flex;
+  justify-content: flex-end;
+  border-top: 2px solid lightgray;
+  padding-top: 10px;
+}
+
+.controlsBox > * {
+  margin-left: 10px;
+}

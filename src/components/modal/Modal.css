@@ -1,0 +1,50 @@
+.modalOverlay {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.modal {
+  position: fixed;
+  width: 60vw;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  padding: 20px;
+  z-index: 3;
+  top: 15%;
+  left: 15%;
+  transform: translate((-50%, -50%));
+  box-shadow: inset 2px -3px 11px rgba(80, 92, 51, 0.8);
+}
+
+.modalBtn {
+  all: unset;
+  position: absolute;
+  right: 2%;
+  top: 3%;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+@media(max-width: 1000px){
+  .modal{         
+      width: 60vw;             
+  }    
+}
+
+@media (max-height:900px){
+  .modal{        
+      top: 3%;       
+      left: 20%;        
+  }   
+}

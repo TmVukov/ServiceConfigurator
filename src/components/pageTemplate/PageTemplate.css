@@ -1,0 +1,13 @@
+.template{
+    height: 500px;
+    width: 100%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center; 
+    padding: 0 30px; 
+}
+
+.template h3{
+    margin-bottom: 0;
+}

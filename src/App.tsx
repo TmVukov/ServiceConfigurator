@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
+import { FC } from 'react';
 import './App.css';
+import { setModal } from './store/wizardFormSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import Modal from './components/modal/Modal';
+import { RootState } from './store/store';
 
-function App() {
+const App: FC = () => {
+  const dispatch = useDispatch();
+
+  const { modal } = useSelector((state: RootState) => state.wizardForm);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={() => dispatch(setModal(true))}>
+        Pokreni konfigurator
+      </button>
+
+      {modal ? <Modal /> : null}
     </div>
   );
-}
+};
 
 export default App;

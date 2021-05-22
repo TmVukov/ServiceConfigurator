@@ -1,0 +1,56 @@
+.formContainer {
+  width: 600px;
+  height: 150px;
+  align-self: center;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.formTop,
+.formBottom {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.formContainer input {
+  width: 250px;
+  height: 30px;
+  border: 2px solid black;
+  padding-left: 10px;
+}
+
+.formBottom textarea {
+  width: 250px;
+  border: 2px solid black;
+  padding-left: 10px;
+}
+
+.formMessage {
+  position: absolute;
+  bottom: 7%;
+  color: red;
+  font-size: 14px;
+}
+
+@media (min-width: 1400px){
+  .formContainer{
+    width: 100%;
+  }
+
+  .formContainer input,
+  .formContainer textarea{
+    width: 350px
+  }
+}
+
+@media (min-width: 1600px){  
+
+  .formContainer input,
+  .formContainer textarea{
+    width: 450px
+  }
+}

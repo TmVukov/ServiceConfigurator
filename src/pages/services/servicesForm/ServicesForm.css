@@ -1,0 +1,56 @@
+.servicePrice {
+  position: absolute;
+  bottom: 10%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.serviceForm {
+  margin-top: 20px;
+}
+
+.serviceForm input {
+  height: 22px;
+}
+
+.serviceLink {
+  color: dodgerblue;
+  font-weight: bold;
+  text-decoration: underline;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+.serviceDiscount {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.serviceDiscount > * {
+  margin-bottom: 0;
+  font-weight: bold;
+}
+
+.successMessage,
+.errorMessage,
+.infoMessage {
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.successMessage {
+  color: limegreen; 
+}
+
+.errorMessage {
+  color: red;
+  margin-bottom: 0;
+}
+
+.infoMessage {
+  margin-bottom: 0;
+}

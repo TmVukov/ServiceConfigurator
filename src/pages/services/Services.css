@@ -1,0 +1,24 @@
+.serviceContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.serviceNames {
+  font-size: 16px;
+}
+
+.serviceMessage {
+  position: absolute;
+  bottom: 7%;
+  color: red;
+  font-size: 14px;
+}
+
+@media (min-width: 1300px) {
+  .serviceContainer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
