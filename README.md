@@ -1,4 +1,4 @@
 ## Basic info
 
-Link to the project: https://services07.netlify.app/
+Link to the project: https://service07.netlify.app
 
