@@ -23,7 +23,7 @@ const Services: FC = () => {
     'Balansiranje guma (50kn)',
     'Zamjena ulja u kočnicama (229kn)',
   ];
-  console.log(checkedServices)
+  
 
   const getStatus = (e: ChangeEvent) => {
     const target = e.target as HTMLInputElement;
