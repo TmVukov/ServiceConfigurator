@@ -10,8 +10,12 @@
   grid-gap: 10px;
 }
 
+.reviewContainer {
+  margin-top: 10px;
+}
+
 .reviewContainer h3 {
-  margin-right: 20px;
+  margin: 0 20px 0 0;
 }
 
 .reviewContainer h5 {

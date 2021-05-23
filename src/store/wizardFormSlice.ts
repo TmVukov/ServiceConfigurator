@@ -3,7 +3,7 @@ import { WizardFormState } from './wizardTypes';
 
 const initialState: WizardFormState = {
   modal: false,
-  showMessage: false,
+  errorMessage: false,
   discountSuccess: false,
   step: 1,
 };
@@ -24,14 +24,14 @@ const wizardFormSlice = createSlice({
     setPage(state, { payload: skip }: PayloadAction<number>) {
       state.step = state.step - skip;
     },
-    setShowMessage(state, { payload: messageStatus }: PayloadAction<boolean>) {
-      state.showMessage = messageStatus;
+    setErrorMessage(state, { payload: messageStatus }: PayloadAction<boolean>) {
+      state.errorMessage = messageStatus;
     },
     setDiscountSuccess(
       state,
-      { payload: discountSuccessValue }: PayloadAction<boolean>,
+      { payload: discountStatus }: PayloadAction<boolean>,
     ) {
-      state.discountSuccess = discountSuccessValue;
+      state.discountSuccess = discountStatus;
     },
   },
 });
@@ -41,7 +41,7 @@ export const {
   setNext,
   setPrev,
   setPage,
-  setShowMessage,
+  setErrorMessage,
   setDiscountSuccess,
 } = wizardFormSlice.actions;
 

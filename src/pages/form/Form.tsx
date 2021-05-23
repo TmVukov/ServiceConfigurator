@@ -1,6 +1,6 @@
 import { useRef, FC, ChangeEvent } from 'react';
 import './Form.css';
-import { setNext, setPrev, setShowMessage } from '../../store/wizardFormSlice';
+import { setNext, setPrev, setErrorMessage } from '../../store/wizardFormSlice';
 import {
   setName,
   setEmail,
@@ -18,16 +18,16 @@ const Form: FC = () => {
   const emailRef = useRef<HTMLInputElement>(null);
   const phoneRef = useRef<HTMLInputElement>(null);
   const messageRef = useRef<HTMLTextAreaElement>(null);
+
   const { name, email, phone, message } = useSelector(
     (state: RootState) => state.wizardData,
   );
-  const { showMessage } = useSelector((state: RootState) => state.wizardForm);
+  const { errorMessage } = useSelector((state: RootState) => state.wizardForm);
 
   const resetMessageStatus = (e: ChangeEvent) => {
     const target = e.target as HTMLInputElement;
-
-    if (target.value.length) dispatch(setShowMessage(false));
-    else dispatch(setShowMessage(true));
+    if (target.value.length) dispatch(setErrorMessage(false));
+    else dispatch(setErrorMessage(true));
   };
 
   const checkStatus = () => {
@@ -40,7 +40,7 @@ const Form: FC = () => {
       emailRef.current!.value &&
       phoneRef.current!.value
       ? dispatch(setNext())
-      : dispatch(setShowMessage(true));
+      : dispatch(setErrorMessage(true));
   };
 
   return (
@@ -83,7 +83,7 @@ const Form: FC = () => {
         </div>
       </div>
 
-      {showMessage && (
+      {errorMessage && (
         <p className="formMessage">
           Molimo ispunite polja označena zvjezdicom (*).
         </p>

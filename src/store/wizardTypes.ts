@@ -1,6 +1,6 @@
 export interface WizardFormState {
   modal: boolean;
-  showMessage: boolean;
+  errorMessage: boolean;
   discountSuccess: boolean;
   step: number;
 }

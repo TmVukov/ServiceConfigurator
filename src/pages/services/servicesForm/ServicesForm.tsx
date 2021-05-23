@@ -63,8 +63,7 @@ const ServicesForm: FC = () => {
           Unijeli ste krivi kod kupona. Pokušajte ponovo.
         </p>
       )}
-
-      {discountSuccess? (
+      {discountSuccess ? (
         <h3>UKUPNO: {(totalPrice - discount).toFixed(2)} kn</h3>
       ) : (
         <h3>UKUPNO: {totalPrice.toFixed(2)} kn</h3>

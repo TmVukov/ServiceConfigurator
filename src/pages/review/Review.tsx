@@ -60,7 +60,7 @@ const Review: FC = () => {
               ) : (
                 <h5>UKUPNO: {totalPrice.toFixed(2)} kn</h5>
               )}
-            </div>
+            </div> 
           </div>
         </div>
 

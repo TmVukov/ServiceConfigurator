@@ -1,6 +1,6 @@
 import { FC, ChangeEvent } from 'react';
 import './Services.css';
-import { setNext, setPrev, setShowMessage } from '../../store/wizardFormSlice';
+import { setNext, setPrev, setErrorMessage } from '../../store/wizardFormSlice';
 import { setService, removeService } from '../../store/wizardCalcSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
@@ -10,7 +10,7 @@ import ControlsBox from '../../components/controlsBox/ControlsBox';
 
 const Services: FC = () => {
   const dispatch = useDispatch();
-  const { showMessage } = useSelector((state: RootState) => state.wizardForm);
+  const { errorMessage } = useSelector((state: RootState) => state.wizardForm);
   const { checkedServices } = useSelector(
     (state: RootState) => state.wizardCalc,
   );
@@ -23,21 +23,24 @@ const Services: FC = () => {
     'Balansiranje guma (50kn)',
     'Zamjena ulja u kočnicama (229kn)',
   ];
+  console.log(checkedServices)
 
   const getStatus = (e: ChangeEvent) => {
     const target = e.target as HTMLInputElement;
     if (target.checked) {
       dispatch(setService(target.value));
-      dispatch(setShowMessage(false));
-    } else {
+      dispatch(setErrorMessage(false));
+    }     
+    else {
       dispatch(removeService(target.value));
+      dispatch(setErrorMessage(true));      
     }
   };
 
   const checkStatus = () => {
     return checkedServices.length > 0
       ? dispatch(setNext())
-      : dispatch(setShowMessage(true));
+      : dispatch(setErrorMessage(true));
   };
 
   return (
@@ -48,11 +51,11 @@ const Services: FC = () => {
         {serviceNames.map((service) => (
           <div className="serviceNames" key={service}>
             <input
-              type="checkbox"
+              type="checkbox" 
               name="services"
               value={service}
               checked={checkedServices.includes(service)}
-              onChange={(e: ChangeEvent<HTMLInputElement>) => getStatus(e)}
+              onChange={(e) => getStatus(e)}
             />
             <label htmlFor="services">{service}</label>
           </div>
@@ -61,7 +64,7 @@ const Services: FC = () => {
 
       <ServicesForm />
 
-      {showMessage && (
+      {errorMessage && checkedServices.length === 0 && (
         <p className="serviceMessage">Molimo odaberite uslugu.</p>
       )}
 

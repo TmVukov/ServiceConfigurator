@@ -1,6 +1,6 @@
 import { FC, ChangeEvent } from 'react';
 import './Brands.css';
-import { setNext, setShowMessage } from '../../store/wizardFormSlice';
+import { setNext, setErrorMessage } from '../../store/wizardFormSlice';
 import { setBrandName } from '../../store/wizardDataSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
@@ -10,7 +10,7 @@ import ControlsBox from '../../components/controlsBox/ControlsBox';
 const Brands: FC = () => {
   const dispatch = useDispatch();
   const { brand } = useSelector((state: RootState) => state.wizardData);
-  const { showMessage } = useSelector((state: RootState) => state.wizardForm);
+  const { errorMessage } = useSelector((state: RootState) => state.wizardForm);
 
   const carBrands = [
     'Peugeot',
@@ -30,12 +30,12 @@ const Brands: FC = () => {
 
     if (target.checked) {
       dispatch(setBrandName(target.value));
-      dispatch(setShowMessage(false));
+      dispatch(setErrorMessage(false));
     }
   };
 
   const checkStatus = () => {
-    return brand ? dispatch(setNext()) : dispatch(setShowMessage(true));
+    return brand ? dispatch(setNext()) : dispatch(setErrorMessage(true));
   };
 
   return (
@@ -50,14 +50,14 @@ const Brands: FC = () => {
               name="cars"
               value={car}
               checked={car === brand}
-              onChange={(e: ChangeEvent<HTMLInputElement>) => getStatus(e)}
+              onChange={(e) => getStatus(e)}
             />
             <label htmlFor="cars">{car}</label>
           </div>
         ))}
       </div>
 
-      {showMessage && !brand && (
+      {errorMessage && !brand && (
         <p className="brandMessage">Molimo odaberite marku vašeg vozila.</p>
       )}
 
